@@ -75,7 +75,14 @@
   }
   .hero-circle-1 { width: 340px; height: 340px; }
   .hero-circle-2 { width: 240px; height: 240px; }
-  .hero-doctor-ring { width: 260px; height: 260px; }
+  .hero-doctor-ring {
+    width: 260px;
+    height: 260px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .hero-float-card { scale: 0.9; }
   .hero-float-card-1 { left: 0; }
   .hero-float-card-2 { right: 0; }
@@ -301,12 +308,28 @@
   }
   .hero-circle-1 { width: 280px; height: 280px; }
   .hero-circle-2 { width: 200px; height: 200px; }
-  .hero-doctor-ring { width: 210px; height: 210px; }
+  .hero-doctor-ring {
+    width: 210px;
+    height: 210px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .hero-float-card { display: flex; scale: 0.8; }
   .hero-float-card-1 { top: 5%; left: -2%; }
   .hero-float-card-2 { bottom: 10%; right: -2%; }
   .hero-float-card-3 { top: 45%; left: -8%; }
-  .hero-ring-logo { width: 70%; height: 70%; }
+  .hero-ring-logo {
+    width: 90%;
+    height: 90%;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 50%;
+    background: white;
+  }
   .hero-badge { margin-bottom: 1rem; }
   .hero-title { margin-bottom: 1rem; }
   .hero-subtitle { margin-bottom: 1.5rem; }

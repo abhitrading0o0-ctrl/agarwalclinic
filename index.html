@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Agarwal's Dental Health Clinic & Implant Centre — Best Dentist in Agra</title>
+  <meta name="description" content="Dr. Agarwal's Dental Health Clinic in Agra offers world-class dental care — implants, smile designing, orthodontics, root canal & more. Dr. Ajay & Dr. Rachana Agarwal. Book appointment today." />
+  <meta name="keywords" content="dentist agra, dental clinic agra, dental implants agra, smile designing agra, orthodontics agra" />
+  <link rel="canonical" href="https://Agarwaldentalclinic.com/" />
+
+  <!-- Critical CSS inline -->
+  <style>
+    body{margin:0;font-family:'Inter',sans-serif;background:#f0f6ff;overflow-x:hidden;}
+    .navbar{position:fixed;top:0;left:0;width:100%;z-index:999;padding:1.25rem 0;}
+    #page-transition{position:fixed;inset:0;z-index:9999;background:#1d4ed8;clip-path:circle(0% at 50% 50%);pointer-events:none;}
+  </style>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <!-- Lenis -->
+</head>
+<body>
+
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="page-transition"></div>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- =====================================================================
+     NAVBAR
+     ===================================================================== -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="index.html" class="logo" aria-label="Dr. Agarwal Dental Health Clinic & Implant Centre Home">
+        <div class="logo-icon">
+          <img src="images/branding/logo.png" alt="Dr. Agarwal Dental Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+        </div>
+        Dr. Agarwal's Dental
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="nav-links" role="menubar">
+        <a href="index.html"    class="nav-link active" role="menuitem">Home</a>
+        <a href="about.html"    class="nav-link" role="menuitem">About</a>
+        <div class="nav-link nav-services-toggle" role="menuitem" aria-haspopup="true">
+          Services
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 8L1 3h10z"/></svg>
+        </div>
+        <a href="doctors/dr-ajay-agarwal.html"   class="nav-link" role="menuitem">Our Doctors</a>
+        <a href="contact.html"  class="nav-link" role="menuitem">Contact</a>
+      </div>
+
+      <a href="appointment.html" class="btn btn-primary nav-cta nav-cta-desktop magnetic">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg>
+        Book Appointment
+      </a>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="menu-backdrop" id="menu-backdrop"></div>
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html"    class="mobile-nav-link">🏠 Home</a>
+  <a href="about.html"    class="mobile-nav-link">ℹ️ About Us</a>
+  <div class="mobile-menu-divider"></div>
+  <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#94a3b8;padding:.5rem 1rem 0;">Services</p>
+  <a href="services/dental-implants.html"       class="mobile-nav-link">🦷 Dental Implants</a>
+  <a href="services/smile-designing.html"       class="mobile-nav-link">😁 Smile Designing</a>
+  <a href="services/orthodontic-treatment.html" class="mobile-nav-link">🔧 Orthodontics</a>
+  <a href="services/root-canal-therapy.html"    class="mobile-nav-link">🩺 Root Canal Therapy</a>
+  <a href="services/teeth-whitening.html"       class="mobile-nav-link">✨ Teeth Whitening</a>
+  <a href="services/gum-treatment.html"         class="mobile-nav-link">🌿 Gum Treatment</a>
+  <a href="services/oral-surgery.html"          class="mobile-nav-link">⚕️ Oral Surgery</a>
+  <a href="services/crowns-and-capping.html"    class="mobile-nav-link">👑 Crowns & Capping</a>
+  <div class="mobile-menu-divider"></div>
+  <a href="doctors/dr-ajay-agarwal.html"    class="mobile-nav-link">👨‍⚕️ Dr. Ajay Agarwal</a>
+  <a href="doctors/dr-rachana-agarwal.html" class="mobile-nav-link">👩‍⚕️ Dr. Rachana Agarwal</a>
+  <div class="mobile-menu-divider"></div>
+  <a href="contact.html"     class="mobile-nav-link">📍 Contact</a>
+  <a href="appointment.html" class="btn btn-primary btn-full" style="margin-top:1rem;justify-content:center;">Book Appointment</a>
+</div>
+
+<!-- =====================================================================
+     HERO SECTION
+     ===================================================================== -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <!-- Left: Text -->
+      <div class="hero-text">
+        <div class="hero-badge hero-reveal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+          Trusted Since 2004 · Agra's Premier Health Clinic
+        </div>
+
+        <h1 class="hero-title hero-reveal hero-reveal-delay-1">
+          Your Healthy<br><span>Smile</span> Starts<br>Here
+        </h1>
+
+        <p class="hero-subtitle hero-reveal hero-reveal-delay-2">
+          World-class dental care in the heart of Agra. From routine check-ups to full smile transformations — Dr. Ajay &amp; Dr. Rachana Agarwal are here for you.
+        </p>
+
+        <div class="hero-actions hero-reveal hero-reveal-delay-3">
+          <a href="appointment.html" class="btn btn-primary btn-lg btn-pulse magnetic">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg>
+            Book Appointment
+          </a>
+          <a href="tel:+919412589572" class="btn btn-secondary btn-lg magnetic">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            Call Clinic
+          </a>
+        </div>
+
+        <!-- Quick trust points -->
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:2.5rem;">
+          <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:600;color:#475569;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#22c55e"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            20+ Years Experience
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:600;color:#475569;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#22c55e"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            5000+ Happy Patients
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:600;color:#475569;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#22c55e"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            ISO Certified Clinic
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Visual -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-circle hero-circle-1"></div>
+        <div class="hero-circle hero-circle-2"></div>
+
+        <div class="hero-doctor-ring">
+          <img src="images/branding/logo.png" alt="Agarwal Dental Clinic Logo" class="hero-ring-logo">
+        </div>
+
+        <!-- Floating stat cards -->
+        <div class="hero-float-card hero-float-card-1 float-a">
+          <div class="card-num" data-counter data-target="5000" data-suffix="+">5000+</div>
+          <div class="card-label">Happy Patients</div>
+        </div>
+        <div class="hero-float-card hero-float-card-2 float-b">
+          <div class="card-num" data-counter data-target="20" data-suffix="+">20+</div>
+          <div class="card-label">Years Experience</div>
+        </div>
+        <div class="hero-float-card hero-float-card-3 float-c">
+          <div class="card-num" data-counter data-target="8">8</div>
+          <div class="card-label">Specializations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     STATS SECTION
+     ===================================================================== -->
+<section class="stats-section" aria-label="Clinic Statistics">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item" data-reveal="up" data-delay="1">
+        <div class="stat-number stat-counter" data-counter data-target="5000" data-suffix="+" data-prefix="">5000+</div>
+        <div class="stat-label">Patients Treated</div>
+      </div>
+      <div class="stat-item" data-reveal="up" data-delay="2">
+        <div class="stat-number stat-counter" data-counter data-target="20" data-suffix="+">20+</div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+      <div class="stat-item" data-reveal="up" data-delay="3">
+        <div class="stat-number stat-counter" data-counter data-target="8">8</div>
+        <div class="stat-label">Specializations</div>
+      </div>
+      <div class="stat-item" data-reveal="up" data-delay="4">
+        <div class="stat-number stat-counter" data-counter data-target="98" data-suffix="%">98%</div>
+        <div class="stat-label">Patient Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SERVICES SECTION
+     ===================================================================== -->
+<section id="services" class="bg-light">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3.5rem;">
+      <span class="section-label" data-reveal="blur">What We Offer</span>
+      <h2 class="section-title" data-reveal="blur">Our Dental Services</h2>
+      <p class="section-subtitle" data-reveal="blur">Comprehensive dental care tailored to your needs — from preventive to cosmetic and restorative treatments.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- 1. Dental Implants -->
+      <div class="service-card" data-reveal="up" data-delay="1">
+        <div class="service-card-body">
+          <img src="images/generated/dental_implants.png" alt="Dental Implants" class="service-img" loading="lazy">
+          <h3 class="card-title">Dental Implants</h3>
+          <p class="card-desc">Permanent tooth replacement that looks, feels, and functions like natural teeth. Titanium implants with a lifetime of confidence.</p>
+          <a href="services/dental-implants.html" class="btn btn-secondary btn-sm">Learn More →</a>
+        </div>
+        <div class="service-reveal" aria-hidden="true">
+          <h3>Dental Implants</h3>
+          <p>Restore your smile permanently with state-of-the-art implant technology. Zero compromise on aesthetics or function.</p>
+          <a href="services/dental-implants.html" class="btn btn-white btn-sm">Explore Treatment</a>
+        </div>
+      </div>
+
+      <!-- 2. Smile Designing -->
+      <div class="service-card" data-reveal="up" data-delay="2">
+        <div class="service-card-body">
+          <img src="images/generated/smile_designing.png" alt="Smile Designing" class="service-img" loading="lazy">
+          <h3 class="card-title">Smile Designing</h3>
+          <p class="card-desc">Transform your smile with a custom-crafted aesthetic plan — veneers, bonding, and complete makeovers for picture-perfect results.</p>
+          <a href="services/smile-designing.html" class="btn btn-secondary btn-sm">Learn More →</a>
+        </div>
+        <div class="service-reveal" aria-hidden="true">
+          <h3>Smile Designing</h3>
+          <p>Digital smile preview before any procedure. Every smile is as unique as you are — we craft yours with precision artistry.</p>
+          <a href="services/smile-designing.html" class="btn btn-white btn-sm">Explore Treatment</a>
+        </div>
+      </div>
+
+      <!-- 3. Orthodontics -->
+      <div class="service-card" data-reveal="up" data-delay="3">
+        <div class="service-card-body">
+          <img src="images/generated/ortho_treatment.png" alt="Orthodontic Treatment" class="service-img" loading="lazy">
+          <h3 class="card-title">Orthodontic Treatment</h3>
+          <p class="card-desc">Traditional braces and modern clear aligners to straighten teeth and perfect bite alignment for all ages.</p>
+          <a href="services/orthodontic-treatment.html" class="btn btn-secondary btn-sm">Learn More →</a>
+        </div>
+        <div class="service-reveal" aria-hidden="true">
+          <h3>Orthodontics</h3>
+          <p>Invisible aligners or ceramic braces — we have the right solution for your lifestyle and budget. Beautiful results guaranteed.</p>
+          <a href="services/orthodontic-treatment.html" class="btn btn-white btn-sm">Explore Treatment</a>
+        </div>
+      </div>
+
+      <!-- 4. Root Canal -->
+      <div class="service-card" data-reveal="up" data-delay="4">
+        <div class="service-card-body">
+          <img src="images/generated/root_canal.png" alt="Root Canal Therapy" class="service-img" loading="lazy">
+          <h3 class="card-title">Root Canal Therapy</h3>
+          <p class="card-desc">Pain-free, precision root canal treatment using rotary files and apex locators. Save your natural tooth with confidence.</p>
+          <a href="services/root-canal-therapy.html" class="btn btn-secondary btn-sm">Learn More →</a>
+        </div>
+        <div class="service-reveal" aria-hidden="true">
+          <h3>Root Canal</h3>
+          <p>Advanced endodontic care that eliminates pain and preserves your natural tooth. Modern techniques mean minimal discomfort.</p>
+          <a href="services/root-canal-therapy.html" class="btn btn-white btn-sm">Explore Treatment</a>
+        </div>
+      </div>
+
+      <!-- 5. Teeth Whitening -->
+      <div class="service-card" data-reveal="up" data-delay="5">
+        <div class="service-card-body">
+          <img src="images/generated/teeth_whitening.png" alt="Teeth Whitening" class="service-img" loading="lazy">
+          <h3 class="card-title">Teeth Whitening</h3>
+          <p class="card-desc">Professional-grade whitening for dramatic results in a single session. Up to 8 shades brighter — safe and effective.</p>
+          <a href="services/teeth-whitening.html" class="btn btn-secondary btn-sm">Learn More →</a>
+        </div>
+        <div class="service-reveal" aria-hidden="true">
+          <h3>Teeth Whitening</h3>
+          <p>Zoom whitening, laser whitening, and take-home kits. Professional results far beyond any over-the-counter solution.</p>
+          <a href="services/teeth-whitening.html" class="btn btn-white btn-sm">Explore Treatment</a>
+        </div>
+      </div>
+
+      <!-- 6. Gum Treatment -->
+      <div class="service-card" data-reveal="up" data-delay="6">
+        <div class="service-card-body">
+          <img src="images/generated/gum_treatment.png" alt="Gum Treatment" class="service-img" loading="lazy">
+          <h3 class="card-title">Gum Treatment</h3>
+          <p class="card-desc">Comprehensive periodontal care — scaling, root planing, and advanced gum surgeries to restore gum health.</p>
+          <a href="services/gum-treatment.html" class="btn btn-secondary btn-sm">Learn More →</a>
+        </div>
+        <div class="service-reveal" aria-hidden="true">
+          <h3>Gum Treatment</h3>
+          <p>Healthy gums are the foundation of a great smile. We treat everything from mild gingivitis to advanced periodontitis.</p>
+          <a href="services/gum-treatment.html" class="btn btn-white btn-sm">Explore Treatment</a>
+        </div>
+      </div>
+
+      <!-- 7. Oral Surgery -->
+      <div class="service-card" data-reveal="up" data-delay="1">
+        <div class="service-card-body">
+          <img src="images/generated/oral_surgery.jpg" alt="Oral Surgery" class="service-img" loading="lazy">
+          <h3 class="card-title">Oral Surgery</h3>
+          <p class="card-desc">Wisdom tooth extractions, cyst removal, and minor oral surgeries performed with precision and minimal invasiveness.</p>
+          <a href="services/oral-surgery.html" class="btn btn-secondary btn-sm">Learn More →</a>
+        </div>
+        <div class="service-reveal" aria-hidden="true">
+          <h3>Oral Surgery</h3>
+          <p>Expert surgical care under local anesthesia. Post-operative recovery guidance ensures fast, comfortable healing.</p>
+          <a href="services/oral-surgery.html" class="btn btn-white btn-sm">Explore Treatment</a>
+        </div>
+      </div>
+
+      <!-- 8. Crowns & Capping -->
+      <div class="service-card" data-reveal="up" data-delay="2">
+        <div class="service-card-body">
+          <img src="images/generated/crowns_and_capping.png" alt="Crowns & Capping" class="service-img" loading="lazy">
+          <h3 class="card-title">Crowns &amp; Capping</h3>
+          <p class="card-desc">Zirconia and porcelain crowns that restore tooth strength and natural aesthetics. Lab-fabricated for a perfect fit.</p>
+          <a href="services/crowns-and-capping.html" class="btn btn-secondary btn-sm">Learn More →</a>
+        </div>
+        <div class="service-reveal" aria-hidden="true">
+          <h3>Crowns &amp; Capping</h3>
+          <p>Same-day crowns available using CAD/CAM technology. Durable, natural-looking restorations that last decades.</p>
+          <a href="services/crowns-and-capping.html" class="btn btn-white btn-sm">Explore Treatment</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     WHY CHOOSE US
+     ===================================================================== -->
+<section id="why-us" class="bg-gradient">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3.5rem;">
+      <span class="section-label">Why We're Different</span>
+      <h2 class="section-title" data-split>Why Choose Agarwal Dental?</h2>
+      <p class="section-subtitle">We combine decades of clinical expertise with modern technology to deliver care that truly transforms lives.</p>
+    </div>
+
+    <div class="features-grid stagger-list">
+      <div class="feature-card benefit-item">
+        <img src="images/generated/feature_expertise.jpg" alt="20+ Years Expertise" class="feature-img" loading="lazy">
+        <h4>20+ Years Expertise</h4>
+        <p>Two expert doctors with combined decades of specialized training and clinical excellence.</p>
+      </div>
+      <div class="feature-card benefit-item">
+        <img src="images/generated/feature_technology.jpg" alt="Latest Technology" class="feature-img" loading="lazy">
+        <h4>Latest Technology</h4>
+        <p>Digital X-rays, rotary endodontics, laser dentistry — the most advanced tools available.</p>
+      </div>
+      <div class="feature-card benefit-item">
+        <img src="images/generated/feature_pain_free.jpg" alt="Pain-Free Dentistry" class="feature-img" loading="lazy">
+        <h4>Pain-Free Dentistry</h4>
+        <p>Topical anaesthesia, gentle technique, and sedation options for completely anxiety-free visits.</p>
+      </div>
+      <div class="feature-card benefit-item">
+        <img src="images/generated/feature_family.jpg" alt="Family Care" class="feature-img" loading="lazy">
+        <h4>Family Care</h4>
+        <p>Serving patients of all ages — from toddlers to seniors — under one roof with full-family treatment plans.</p>
+      </div>
+      <div class="feature-card benefit-item">
+        <img src="images/generated/feature_sterile.jpg" alt="Sterilized Equipment" class="feature-img" loading="lazy">
+        <h4>Sterilized Equipment</h4>
+        <p>Autoclave sterilization protocols and disposable instruments ensure absolute clinical hygiene.</p>
+      </div>
+      <div class="feature-card benefit-item">
+        <img src="images/generated/feature_emi.jpg" alt="EMI Available" class="feature-img" loading="lazy">
+        <h4>EMI Available</h4>
+        <p>Affordable treatment financing — no-cost EMI options so cost never comes between you and a healthy smile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     OUR DOCTORS
+     ===================================================================== -->
+<section id="doctors" class="bg-white">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3.5rem;">
+      <span class="section-label">Meet Our Team</span>
+      <h2 class="section-title" data-split>Expert Doctors, Caring Touch</h2>
+      <p class="section-subtitle">Decades of experience, ongoing education, and a genuine passion for patient wellbeing.</p>
+    </div>
+
+    <div class="doctors-grid">
+      <!-- Dr. Ajay -->
+      <div class="doctor-card" data-reveal>
+        <div class="card-body">
+          <div class="doctor-photo-ring" style="background:linear-gradient(135deg,#1d4ed8,#0891b2);">AA</div>
+          <h3>Dr. Ajay Agarwal</h3>
+          <p class="doctor-qualification">BDS, MDS — Oral & Maxillofacial Surgery<br>20+ Years Experience</p>
+          <div class="doctor-tags">
+            <span class="tag">Implants</span>
+            <span class="tag">Oral Surgery</span>
+            <span class="tag">Root Canal</span>
+            <span class="tag">Smile Design</span>
+          </div>
+          <a href="doctors/dr-ajay-agarwal.html" class="btn btn-primary magnetic">View Profile</a>
+        </div>
+      </div>
+
+      <!-- Dr. Rachana -->
+      <div class="doctor-card" data-reveal>
+        <div class="card-body">
+          <div class="doctor-photo-ring" style="background:linear-gradient(135deg,#0f766e,#9333ea);">RA</div>
+          <h3>Dr. Rachana Agarwal</h3>
+          <p class="doctor-qualification">BDS, MDS — Orthodontics & Dentofacial Orthopedics<br>18+ Years Experience</p>
+          <div class="doctor-tags">
+            <span class="tag">Orthodontics</span>
+            <span class="tag">Clear Aligners</span>
+            <span class="tag">Cosmetic</span>
+            <span class="tag">Paediatric</span>
+          </div>
+          <a href="doctors/dr-rachana-agarwal.html" class="btn btn-primary magnetic">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     TESTIMONIALS
+     ===================================================================== -->
+<!-- =====================================================================
+     TESTIMONIALS (Premium Google Reviews)
+     ===================================================================== -->
+<section id="testimonials" class="testimonials-section">
+  <div class="container">
+    <div class="testimonials-header" data-reveal="blur">
+      <div class="trust-badge">
+        <div class="google-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+        <div class="trust-info">
+          <div class="stars-row">
+            <span class="rating-num">4.4</span>
+            <div class="stars-svg">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" style="fill:#e2e8f0; clip-path: inset(0 60% 0 0);"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+          </div>
+          <p>320 Google Ratings</p>
+        </div>
+      </div>
+      <h2 class="section-title">What Our Patients Say</h2>
+      <p class="section-subtitle">Real experiences from those who trust us with their smiles.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- Review 1 -->
+      <div class="review-card" data-reveal="up" data-delay="1">
+        <div class="review-card-head">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:#3b82f6;">M</div>
+            <div class="reviewer-meta">
+              <strong>Mukul Garg</strong>
+              <div class="review-date">
+                <span>Local Guide</span> • <span>2 months ago</span>
+              </div>
+            </div>
+          </div>
+          <div class="google-source">
+            <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </div>
+        </div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <div class="review-content">
+          <p>"The staff at Agarwal Dental Clinic is friendly and skilled. Great place for dental implants! Highly recommended for any dental issues."</p>
+        </div>
+        <div class="review-verified">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Verified Patient
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card" data-reveal="up" data-delay="2">
+        <div class="review-card-head">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:#9333ea;">C</div>
+            <div class="reviewer-meta">
+              <strong>Chahat Gupta</strong>
+              <div class="review-date">
+                <span>Patient</span> • <span>3 months ago</span>
+              </div>
+            </div>
+          </div>
+          <div class="google-source">
+            <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </div>
+        </div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24" style="fill:#e2e8f0;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <div class="review-content">
+          <p>"Amazing experience at Dr. Agarwal's clinic. The doctors are very professional and the hygiene standards are top-notch. Best dental clinic in Agra!"</p>
+        </div>
+        <div class="review-verified">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Verified Patient
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card" data-reveal="up" data-delay="3">
+        <div class="review-card-head">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background:#0891b2;">AA</div>
+            <div class="reviewer-meta">
+              <strong>Ankit Agarwal</strong>
+              <div class="review-date">
+                <span>Patient</span> • <span>6 months ago</span>
+              </div>
+            </div>
+          </div>
+          <div class="google-source">
+            <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </div>
+        </div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <div class="review-content">
+          <p>"Very happy with my treatment. The clinic is very clean and the staff is cooperative. Dr. Agarwal is one of the best dentists in Agra."</p>
+        </div>
+        <div class="review-verified">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Verified Patient
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center" style="margin-top:3rem;">
+      <a href="https://www.google.com/search?q=Dr.+Agarwal%27s+Dental+Health+Clinic+Agra#lrd=0x3974775d7e686c1d:0x8797b1a2082e022,1" class="btn btn-secondary magnetic" target="_blank" rel="noopener">
+        View All Google Reviews
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FAQ
+     ===================================================================== -->
+<section id="faq" class="bg-white">
+  <div class="container" style="max-width:800px;">
+    <div class="text-center" style="margin-bottom:3.5rem;">
+      <span class="section-label">Got Questions?</span>
+      <h2 class="section-title" data-split>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list stagger-list">
+      <div class="faq-item stagger-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer painless dental treatments?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes! We use topical anaesthesia, modern rotary instruments, and gentle techniques to ensure every procedure is virtually pain-free. We also offer sedation options for highly anxious patients.</div></div>
+      </div>
+      <div class="faq-item stagger-item">
+        <button class="faq-question" aria-expanded="false">
+          How long do dental implants last?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">With proper care, dental implants can last a lifetime. The titanium implant itself is permanent; the crown on top typically lasts 15-25 years. Regular check-ups and good oral hygiene are key.</div></div>
+      </div>
+      <div class="faq-item stagger-item">
+        <button class="faq-question" aria-expanded="false">
+          Is teeth whitening safe?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Professional teeth whitening at our clinic is completely safe. We use ADA-approved agents, protect your gums, and calibrate the concentration to your tooth sensitivity level. Some temporary sensitivity is normal and resolves within 48 hours.</div></div>
+      </div>
+      <div class="faq-item stagger-item">
+        <button class="faq-question" aria-expanded="false">
+          At what age should my child first visit a dentist?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">The Indian Dental Association recommends a child's first dental visit by their first birthday, or within 6 months of their first tooth appearing. Early visits help establish a positive relationship with the dentist and catch issues early.</div></div>
+      </div>
+      <div class="faq-item stagger-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer EMI or payment plans?
+          <svg class="faq-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes, we offer flexible no-cost EMI options for treatments above ₹5,000. We work with major banks and payment providers to make dental care accessible to every patient. Ask our reception for details.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     CTA BAND
+     ===================================================================== -->
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label" style="color:rgba(255,255,255,0.7);">Ready to Begin?</span>
+    <h2 data-split>Your Perfect Smile Awaits</h2>
+    <p>Book your appointment today and take the first step towards a healthier, more beautiful smile. Same-day appointments available.</p>
+    <div class="cta-actions">
+      <a href="appointment.html" class="btn btn-white btn-lg magnetic">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg>
+        Book Appointment
+      </a>
+      <a href="https://wa.me/919412589572?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Agarwal%20Dental%20Clinic." class="btn btn-whatsapp btn-lg magnetic" target="_blank" rel="noopener noreferrer">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z M12 0C5.373 0 0 5.373 0 12c0 2.096.535 4.07 1.476 5.795L0 24l6.346-1.464A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        WhatsApp Us
+      </a>
+      <a href="tel:+919412589572" class="btn btn-secondary btn-lg" style="border-color:rgba(255,255,255,0.5);color:white;">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Call Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <img src="images/branding/logo.png" alt="Logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
+          </div>
+          Agarwal Dental
+        </a>
+        <p>Agra's premier dental clinic delivering world-class care with a gentle touch since 2004. Your smile is our legacy.</p>
+        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;">
+          <a href="https://wa.me/919412589572" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm magnetic">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z M12 0C5.373 0 0 5.373 0 12c0 2.096.535 4.07 1.476 5.795L0 24l6.346-1.464A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+919412589572" class="btn btn-secondary btn-sm" style="border-color:rgba(255,255,255,0.2);color:#cbd5e1;">Call Us</a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="services/dental-implants.html">Dental Implants</a>
+        <a href="services/smile-designing.html">Smile Designing</a>
+        <a href="services/orthodontic-treatment.html">Orthodontics</a>
+        <a href="services/root-canal-therapy.html">Root Canal</a>
+        <a href="services/teeth-whitening.html">Teeth Whitening</a>
+        <a href="services/gum-treatment.html">Gum Treatment</a>
+        <a href="services/oral-surgery.html">Oral Surgery</a>
+        <a href="services/crowns-and-capping.html">Crowns &amp; Capping</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="doctors/dr-ajay-agarwal.html">Dr. Ajay Agarwal</a>
+        <a href="doctors/dr-rachana-agarwal.html">Dr. Rachana Agarwal</a>
+        <a href="appointment.html">Book Appointment</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+          <span>shop no -16, Vishav Karma Complex, near jwala takies, Ratan Muni Rd, Jaipur House, Khatehna, Jaipur House Colony, Agra, Uttar Pradesh 282010</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          <a href="tel:+919412589572">+91 94125 89572</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <a href="mailto:info@Agarwaldentalclinic.com">info@Agarwaldentalclinic.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 11H7v-2h6v2zm0-4H7V7h6v2z"/></svg>
+          <span>Mon–Sat: 9AM–7PM<br>Sun: Closed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Dr. Agarwal's Dental Health Clinic & Implant Centre, Agra. All rights reserved. | Designed with ❤️ for healthier smiles.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Jotform Chatbot -->
+<script src="https://cdn.jotfor.ms/agent/embedjs/019d856855df79a9b4674a151bd3e8ec97ea/embed.js"></script>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+
+<!-- Scripts -->
+<script src="js/main.js?v=1776006513792" defer></script>
+<script src="js/animations.js?v=1776006513792" defer></script>
+</body>
+</html>

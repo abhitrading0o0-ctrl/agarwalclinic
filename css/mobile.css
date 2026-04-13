@@ -1,0 +1,528 @@
+/* =========================================================================
+   MOBILE.CSS — Responsive Overrides
+   Agarwal Dental Clinic
+   ========================================================================= */
+
+/* ============================================================
+   TABLET (≤ 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-float-card-1, .hero-float-card-3 { display: none; }
+}
+
+/* ============================================================
+   MEDIUM (≤ 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-cta-desktop { display: none; }
+  .hamburger { 
+    display: flex; 
+    width: 24px !important; 
+    height: 24px !important; 
+    padding: 0 !important; 
+    margin: 0 !important; 
+    background: transparent !important; 
+    box-shadow: none !important; 
+  }
+  .navbar { 
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 0 !important; 
+    height: 80px; 
+    display: flex; 
+    align-items: center; 
+    box-sizing: border-box; 
+    z-index: 999 !important;
+  }
+  .nav-inner { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    height: 60px; 
+    padding: 0 1rem; 
+    border-radius: 26px; 
+    box-sizing: border-box; 
+    margin: 0;
+  }
+  .logo { font-size: 1.25rem; }
+  .logo-icon { width: 46px; height: 46px; }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 24px;
+    gap: 1.25rem;
+  }
+  .hero { padding: 92px 0 24px !important; }
+  .hero-text { text-align: center; }
+  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-visual {
+    display: flex;
+    height: 480px;
+    margin-top: 2rem;
+  }
+  .hero-circle-1 { width: 340px; height: 340px; }
+  .hero-circle-2 { width: 240px; height: 240px; }
+  .hero-doctor-ring { width: 260px; height: 260px; }
+  .hero-float-card { scale: 0.9; }
+  .hero-float-card-1 { left: 0; }
+  .hero-float-card-2 { right: 0; }
+  .hero-float-card-3 { left: -5%; }
+  .stats-section { padding: 2.5rem 0; }
+  .mobile-menu {
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: min(92vw, 410px);
+    height: calc(100dvh - 20px);
+    max-height: calc(100dvh - 20px);
+    border-radius: 28px;
+    box-shadow: -20px 0 80px rgba(15, 23, 42, 0.4);
+    transform: translateX(105%);
+  }
+  .mobile-menu-shell {
+    height: 100%;
+    min-height: 0;
+  }
+  .mobile-menu-body {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .doctors-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .appointment-layout { grid-template-columns: 1fr; }
+  .doctor-hero-content { grid-template-columns: 1fr; text-align: center; }
+  .doctor-avatar-large { margin: 0 auto 1.5rem; }
+  .doctor-hero-text .credentials { justify-content: center; }
+
+  .timeline-desktop {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .timeline-desktop::before {
+    top: 36px; left: 36px;
+    bottom: 36px; right: auto;
+    width: 2px; height: auto;
+  }
+  .timeline-step {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 72px minmax(140px, 0.9fr) minmax(0, 1.4fr);
+    align-items: start;
+    gap: 0.8rem 1rem;
+  }
+  .timeline-step h4,
+  .timeline-step p {
+    margin: 0;
+    min-width: 0;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+  .timeline-step h4 {
+    font-size: 1rem;
+    line-height: 1.24;
+  }
+  .timeline-step p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+  .step-dot { flex-shrink: 0; margin: 0; }
+}
+
+/* ============================================================
+   MOBILE (≤ 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+  :root {
+    --section-pad: clamp(1.75rem, 6vw, 2.5rem);
+    --container-pad: 0.85rem;
+  }
+
+  .section-title { line-height: 1.12; }
+  .section-subtitle { font-size: 1rem; }
+
+  /* Services */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .service-card {
+    border-radius: 22px;
+  }
+  .service-card-body {
+    display: grid;
+    grid-template-columns: 108px minmax(0, 1fr);
+    align-items: start;
+    gap: 0.45rem 0.9rem;
+    padding: 1rem;
+  }
+  .service-card-body > * {
+    min-width: 0;
+  }
+  .service-img,
+  .service-icon {
+    margin: 0;
+    grid-row: 1 / span 3;
+    align-self: stretch;
+  }
+  .service-img {
+    width: 108px;
+    height: 108px;
+    aspect-ratio: 1;
+    border-radius: 18px;
+    object-fit: cover;
+  }
+  .service-icon {
+    width: 72px;
+    height: 72px;
+    align-self: center;
+    justify-self: center;
+    margin-top: 0.1rem;
+  }
+  .service-card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.22;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+  .service-card .card-desc {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+  .service-card .btn {
+    width: auto;
+    min-height: 38px;
+    padding: 0.7rem 1rem;
+    margin-top: 0.05rem;
+    justify-self: start;
+    justify-content: center;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* Why Choose Us → 2 columns */
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem;
+  }
+  .feature-card {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    align-items: start;
+    gap: 0.3rem 0.85rem;
+    padding: 1rem;
+    min-height: 0;
+  }
+  .feature-img,
+  .feature-icon {
+    grid-row: 1 / span 2;
+    margin: 0;
+    align-self: start;
+  }
+  .feature-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+  }
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+  }
+  .feature-card h4 {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.2;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+  .feature-card p {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Testimonials */
+  /* Reviews Grid */
+  .reviews-grid { grid-template-columns: 1fr; }
+  .review-card { padding: 1.5rem; }
+  .trust-badge { flex-direction: column; text-align: center; gap: 0.75rem; border-radius: 24px; padding: 1rem; }
+  .testimonials-header { margin-bottom: 2.25rem; }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  /* Calendar */
+  .time-slots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cal-cell { min-height: 40px; font-size: 0.85rem; }
+  .cal-month-year { font-size: 1.1rem; }
+  .calendar-widget,
+  .contact-info-card,
+  .contact-form-card { padding: 1.25rem; }
+
+  /* Appointment progress pills */
+  .steps-indicator { gap: 0; }
+  .step-pill { font-size: 0.75rem; }
+
+  /* Hero floating cards hidden already above 900, reinforce */
+  .hero-visual {
+    height: 400px;
+    margin-top: 1rem;
+    overflow: visible;
+  }
+  .hero-circle-1 { width: 280px; height: 280px; }
+  .hero-circle-2 { width: 200px; height: 200px; }
+  .hero-doctor-ring { width: 210px; height: 210px; }
+  .hero-float-card { display: flex; scale: 0.8; }
+  .hero-float-card-1 { top: 5%; left: -2%; }
+  .hero-float-card-2 { bottom: 10%; right: -2%; }
+  .hero-float-card-3 { top: 45%; left: -8%; }
+  .hero-ring-logo { width: 70%; height: 70%; }
+  .hero-badge { margin-bottom: 1rem; }
+  .hero-title { margin-bottom: 1rem; }
+  .hero-subtitle { margin-bottom: 1.5rem; }
+
+  .hero-actions,
+  .cta-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn,
+  .cta-actions .btn,
+  .doctor-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* CTA actions */
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions .btn { width: 100%; max-width: 320px; }
+
+  /* Scroll offset for mobile nav tap */
+  html { scroll-padding-top: 80px; }
+
+  /* WhatsApp button sizing */
+  .btn-whatsapp.btn-full {
+    min-height: 56px;
+    font-size: 1.1rem;
+  }
+
+  .whatsapp-float {
+    right: 16px;
+    bottom: 16px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .scroll-top {
+    left: 16px;
+    bottom: 16px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .mobile-menu-header {
+    padding: 0.95rem 0.9rem 0.95rem 1rem;
+  }
+
+  .mobile-menu-body {
+    padding: 0.9rem 0.9rem 2.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .mobile-menu-section {
+    margin-bottom: 0;
+  }
+  
+  .mobile-menu-footer {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(148,163,184,0.1);
+  }
+
+  .mobile-menu-brand-copy strong {
+    font-size: 1.08rem;
+  }
+
+  .mobile-link-card {
+    padding: 0.85rem 0.9rem;
+    gap: 0.8rem;
+  }
+
+  .timeline-desktop {
+    gap: 1.35rem;
+  }
+  .timeline-desktop::before {
+    top: 32px;
+    left: 31px;
+    bottom: 32px;
+  }
+  .timeline-step {
+    grid-template-columns: 64px minmax(118px, 0.9fr) minmax(0, 1.2fr);
+    gap: 0.7rem 0.9rem;
+  }
+  .timeline-step h4 {
+    font-size: 0.96rem;
+  }
+  .timeline-step p {
+    font-size: 0.9rem;
+  }
+  .step-dot {
+    width: 64px;
+    height: 64px;
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .service-card-body {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 0.45rem 0.8rem;
+    padding: 0.9rem;
+  }
+  .service-img {
+    width: 92px;
+    height: 92px;
+    border-radius: 16px;
+  }
+  .service-card h3 {
+    font-size: 1rem;
+  }
+  .service-card .card-desc {
+    font-size: 0.81rem;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  .service-card .btn {
+    padding: 0.62rem 0.9rem;
+    font-size: 0.78rem;
+  }
+
+  .feature-card {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 0.25rem 0.75rem;
+    padding: 0.92rem;
+  }
+  .feature-img,
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+  }
+  .feature-card h4 {
+    font-size: 0.94rem;
+  }
+  .feature-card p {
+    font-size: 0.79rem;
+  }
+
+  .timeline-step {
+    grid-template-columns: 56px minmax(108px, 0.95fr) minmax(0, 1.2fr);
+    gap: 0.65rem 0.8rem;
+  }
+  .step-dot {
+    width: 56px;
+    height: 56px;
+    font-size: 1.2rem;
+  }
+  .timeline-desktop::before {
+    top: 28px;
+    left: 27px;
+    bottom: 28px;
+  }
+}
+
+/* ============================================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* 1. Disable desktop-only cursor elements */
+  #cursor-dot, #cursor-ring { display: none !important; }
+
+  /* 2. Disable magnetic effect — JS checks too */
+  .magnetic { transition: none !important; }
+
+  /* 3. Active tap feedback for all interactive */
+  .btn:active,
+  .service-card:active,
+  .doctor-card:active,
+  .feature-card:active { transform: scale(0.97); }
+
+  /* 4. Fully disable service hover-reveal on touch (confusing) */
+  .service-reveal { display: none; }
+
+  /* 5. Nav link underline not applicable */
+  .nav-link::before { display: none; }
+
+  /* 6. Calendar cells larger touch targets */
+  .cal-cell { min-height: 44px; }
+  .cal-nav-btn { width: 52px; height: 52px; }
+}
+
+/* ============================================================
+   LANDSCAPE PHONE
+   ============================================================ */
+@media (max-width: 896px) and (orientation: landscape) {
+  .hero { min-height: auto; padding: 110px 0 60px; }
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-bg { animation: none; }
+  .whatsapp-float::before,
+  .whatsapp-float::after { animation: none; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .navbar, .whatsapp-float, .scroll-top, .mobile-menu, .menu-backdrop,
+  #page-transition, #cursor-dot, #cursor-ring { display: none !important; }
+  body { background: white; color: black; }
+  .hero-bg { display: none; }
+  .hero { padding-top: 2rem; }
+  section { padding: 2rem 0; }
+}

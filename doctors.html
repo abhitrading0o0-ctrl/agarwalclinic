@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors | Agarwal Dental Clinic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="images/branding/logo.png" alt="Dr. Agarwal Dental Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+                </div>
+                Agarwal Dental
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html" class="active">Doctors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="appointment.html" class="btn-primary">Book Appointment</a>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="doctors.html" class="active">Doctors</a>
+        <a href="contact.html">Contact</a>
+        <a href="appointment.html" class="btn-primary" style="margin-top: 20px;">Book Now</a>
+    </div>
+
+    <section style="padding-top: 120px;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-badge">Our Team</span>
+                <h2 class="section-title">Expert <span>Hands</span></h2>
+            </div>
+            <div class="doctor-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                <!-- Doctor 1 -->
+                <div class="doctor-card hover-lift" style="background: white; border-radius: 24px; overflow: hidden; border: 1px solid var(--gray-light);">
+                    <div style="height: 300px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" 
+                             alt="Dr. Ajay Kumar Agarwal" 
+                             referrerPolicy="no-referrer"
+                             style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 30px;">
+                        <h3 style="font-family: var(--f-serif); font-size: 24px;">Dr. Ajay Kumar Agarwal</h3>
+                        <p style="color: var(--primary); font-weight: 600; font-size: 14px; margin-bottom: 10px;">B.D.S., M.I.D.A., M.D.S.</p>
+                        <p style="font-size: 14px; color: var(--gray-mid); margin-bottom: 20px;">Dental & Oral Surgeon, Certified Implantologist.</p>
+                        <a href="doctors/dr-ajay-agarwal.html" class="btn-secondary" style="width: 100%; justify-content: center;">View Profile</a>
+                    </div>
+                </div>
+                <!-- Doctor 2 -->
+                <div class="doctor-card hover-lift" style="background: white; border-radius: 24px; overflow: hidden; border: 1px solid var(--gray-light);">
+                    <div style="height: 300px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80" 
+                             alt="Dr. Rachana Agarwal" 
+                             referrerPolicy="no-referrer"
+                             style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 30px;">
+                        <h3 style="font-family: var(--f-serif); font-size: 24px;">Dr. Rachana Agarwal</h3>
+                        <p style="color: #e11d48; font-weight: 600; font-size: 14px; margin-bottom: 10px;">B.D.S., M.I.D.A.</p>
+                        <p style="font-size: 14px; color: var(--gray-mid); margin-bottom: 20px;">Dental & Oral Surgeon, Gum Specialist.</p>
+                        <a href="doctors/dr-rachana-agarwal.html" class="btn-secondary" style="width: 100%; justify-content: center; border-color: #e11d48; color: #e11d48;">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <div class="logo-icon">
+                            <img src="images/branding/logo.png" alt="Dr. Agarwal Dental Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+                        </div>
+                        Agarwal Dental
+                    </div>
+                    <p style="font-size: 14px;">Providing advanced dental care in Agra since 2005. Your smile is our priority.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services/dental-implants.html">Implants</a></li>
+                        <li><a href="services/smile-designing.html">Smile Design</a></li>
+                        <li><a href="services/orthodontic.html">Braces</a></li>
+                        <li><a href="services/root-canal.html">Root Canal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p style="font-size: 14px; margin-bottom: 10px;">📍 Jaipur House Market, Agra</p>
+                    <p style="font-size: 14px; margin-bottom: 10px;">📞 +91 9412589572</p>
+                    <p style="font-size: 14px;">📧 info@dr-Agarwal.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+  <p>© 2024 Dr. Agarwal's Dental Health & Implant Centre. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/animations.js?v=1776006513791"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — Dr. Agarwal's Dental Health Clinic & Implant Centre, Agra</title>
+  <meta name="description" content="Contact Dr. Agarwal's Dental Health Clinic & Implant Centre, Agra. Call +91 94125 89572, WhatsApp us, or fill the form. Located at Jaipur House, Agra." />
+  <style>
+    body{margin:0;font-family:'Inter',sans-serif;background:#f0f6ff;overflow-x:hidden;}
+    .navbar{position:fixed;top:0;left:0;width:100%;z-index:999;padding:1.25rem 0;}
+    #page-transition{position:fixed;inset:0;z-index:9999;background:#1d4ed8;clip-path:circle(0% at 50% 50%);pointer-events:none;}
+    .contact-hero{background:linear-gradient(-45deg,#1e2a4a,#2563eb,#0891b2,#0e7490);background-size:400% 400%;animation:morphGradient 12s ease infinite;}
+    @keyframes morphGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .map-embed{border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(29,78,216,.1);width:100%;height:320px;border:0;}
+  </style>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/mobile.css"/>
+</head>
+<body>
+<div id="page-transition"></div>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">
+        <img src="images/branding/logo.png" alt="Dr. Agarwal Dental Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+      </div>
+      Dr. Agarwal's Dental
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+    </div>
+    <a href="appointment.html" class="btn btn-primary nav-cta-desktop magnetic">Book Appointment</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div></div>
+</nav>
+<div class="menu-backdrop" id="menu-backdrop"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+  <a href="about.html" class="mobile-nav-link">ℹ️ About</a>
+  <a href="index.html#services" class="mobile-nav-link">🦷 Services</a>
+  <a href="contact.html" class="mobile-nav-link">📍 Contact</a>
+  <a href="appointment.html" class="btn btn-primary btn-full" style="margin-top:1rem;justify-content:center;">Book Appointment</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero contact-hero">
+  <div class="container">
+    <h1>Get in Touch</h1>
+    <p class="breadcrumb"><a href="index.html">Home</a> → Contact Us</p>
+    <p class="contact-hero-intro" style="color:rgba(255,255,255,.85);margin-top:.75rem;">We'd love to hear from you. Reach us by phone, WhatsApp, or the form below.</p>
+  </div>
+</section>
+
+<!-- QUICK CONTACT BUTTONS -->
+<section class="contact-quick-section" style="padding:3rem 0 0;">
+  <div class="container">
+    <div class="contact-quick-actions" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;" data-reveal="up">
+      <a href="tel:+919412589572" class="btn btn-primary btn-lg magnetic contact-quick-btn" style="--contact-delay:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        +91 94125 89572
+      </a>
+      <a href="https://wa.me/919412589572?text=Hi!%20I'd%20like%20to%20get%20in%20touch%20with%20Dr.%20Agarwal's%20Dental%20Clinic." class="btn btn-whatsapp btn-lg magnetic contact-quick-btn" style="--contact-delay:1;" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z M12 0C5.373 0 0 5.373 0 12c0 2.096.535 4.07 1.476 5.795L0 24l6.346-1.464A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        WhatsApp
+      </a>
+      <a href="appointment.html" class="btn btn-secondary btn-lg magnetic contact-quick-btn" style="--contact-delay:2;">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2z"/></svg>
+        Book Appointment
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT GRID -->
+<section>
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Info card -->
+      <div class="contact-info-panel" data-reveal="left">
+        <div class="contact-info-card">
+          <h3 style="margin-bottom:1.5rem;">Clinic Information</h3>
+
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg></div>
+            <div>
+              <strong>Address</strong>
+              <span>shop no -16, Vishav Karma Complex, near jwala takies,<br>Ratan Muni Rd, Jaipur House, Khatehna, Agra 282010</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
+            <div>
+              <strong>Phone</strong>
+              <span><a href="tel:+919412589572" style="color:#1d4ed8;text-decoration:underline;">+91 94125 89572</a></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div>
+              <strong>Email</strong>
+              <span><a href="mailto:info@Agarwaldentalclinic.com" style="color:#1d4ed8;">info@Agarwaldentalclinic.com</a></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 11H7v-2h6v2zm0-4H7V7h6v2z"/></svg></div>
+            <div>
+              <strong>Working Hours</strong>
+              <span>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed</span>
+            </div>
+          </div>
+
+          <!-- Map Embed -->
+          <div style="margin-top:1.5rem;">
+            <iframe
+              class="map-embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.9!2d78.0081!3d27.1767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974788b7b7b7b7b%3A0x0!2sSanjay%20Place%2C%20Agra!5e0!3m2!1sen!2sin!4v1"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Dr. Agarwal's Dental Health Clinic location on Google Maps">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-panel" data-reveal="right">
+        <div class="contact-form-card">
+          <h3 style="margin-bottom:1.75rem;">Send Us a Message</h3>
+          <div class="contact-whatsapp-note">
+            <strong>Fastest reply on WhatsApp</strong>
+            <p>Fill your details once and we'll open WhatsApp with your name, phone, treatment request, and message already written.</p>
+          </div>
+          <form id="contact-form" novalidate>
+
+            <div class="form-group">
+              <input type="text" name="name" id="cnt-name" placeholder=" " required autocomplete="name"/>
+              <label class="floating-label" for="cnt-name">Full Name *</label>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" name="phone" id="cnt-phone" placeholder=" " required autocomplete="tel"/>
+              <label class="floating-label" for="cnt-phone">Mobile Number *</label>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <input type="email" name="email" id="cnt-email" placeholder=" " autocomplete="email"/>
+              <label class="floating-label" for="cnt-email">Email Address (optional)</label>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <select name="service" id="cnt-service" required>
+                <option value=""></option>
+                <option value="General Consultation">General Consultation</option>
+                <option value="Dental Implants">Dental Implants</option>
+                <option value="Smile Designing">Smile Designing</option>
+                <option value="Orthodontics">Orthodontics</option>
+                <option value="Root Canal Therapy">Root Canal Therapy</option>
+                <option value="Teeth Whitening">Teeth Whitening</option>
+                <option value="Gum Treatment">Gum Treatment</option>
+                <option value="Oral Surgery">Oral Surgery</option>
+                <option value="Crowns and Capping">Crowns and Capping</option>
+                <option value="Other">Other</option>
+              </select>
+              <label class="floating-label" for="cnt-service">What Do You Need? *</label>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <textarea name="message" id="cnt-message" placeholder=" " rows="5" required></textarea>
+              <label class="floating-label" for="cnt-message">Your Message *</label>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="contact-form-actions">
+              <button type="submit" class="btn btn-whatsapp btn-lg btn-full magnetic" id="contact-wa-submit" style="min-height:56px;">
+                <span class="btn-text">
+                  <svg width="22" height="22" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z M12 0C5.373 0 0 5.373 0 12c0 2.096.535 4.07 1.476 5.795L0 24l6.346-1.464A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" fill="white"/></svg>
+                  <span class="btn-label">Send on WhatsApp</span>
+                </span>
+                <span class="spinner" style="display:none;"></span>
+              </button>
+              <a href="tel:+919412589572" class="btn btn-secondary btn-full">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+                Call Clinic Instead
+              </a>
+            </div>
+
+            <p class="contact-form-muted">We'll prefill your message in WhatsApp so you only need to tap send.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><div class="logo-icon"><img src="images/branding/logo.png" alt="Logo" style="width:100%;height:100%;object-fit:contain;"></div>Dr. Agarwal's Dental</a>
+        <p>Agra's premier dental clinic delivering world-class care since 2004.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="services/dental-implants.html">Dental Implants</a>
+        <a href="services/smile-designing.html">Smile Designing</a>
+        <a href="services/orthodontic-treatment.html">Orthodontics</a>
+        <a href="services/root-canal-therapy.html">Root Canal</a>
+        <a href="services/teeth-whitening.html">Teeth Whitening</a>
+        <a href="services/gum-treatment.html">Gum Treatment</a>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="appointment.html">Book Appointment</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><a href="tel:+919412589572">+91 94125 89572</a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/></svg><span>Jaipur House, Agra</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 Dr. Agarwal's Dental Health Clinic & Implant Centre. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919412589572" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z M12 0C5.373 0 0 5.373 0 12c0 2.096.535 4.07 1.476 5.795L0 24l6.346-1.464A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+</a>
+<button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top"><svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg></button>
+
+<script src="js/main.js?v=1776006513787" defer></script>
+<script src="js/animations.js?v=1776006513788" defer></script>
+<script src="js/form-validation.js" defer></script>
+</body>
+</html>

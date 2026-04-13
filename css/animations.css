@@ -1,0 +1,436 @@
+/* =========================================================================
+   ANIMATIONS.CSS
+   Cool, engaging animations for page transitions and mobile UI.
+   ========================================================================= */
+
+/* PAGE TRANSITION */
+#page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--primary);
+  clip-path: circle(0% at 50% 100%);
+  transition: clip-path 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+  pointer-events: none;
+}
+#page-transition.is-active {
+  clip-path: circle(150% at 50% 100%);
+  pointer-events: all;
+}
+
+/* CUSTOM CURSOR */
+#cursor-dot, #cursor-ring {
+  transition: opacity 0.3s;
+}
+
+/* FLOAT CARDS */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+.hero-float-card {
+  animation: floatY 6s ease-in-out infinite;
+}
+.hero-float-card.float-b { animation-delay: -2s; }
+.hero-float-card.float-c { animation-delay: -4s; }
+
+/* HOVER EFFECTS & CRAZY LOGO TRANSITION */
+.logo-icon {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+.logo:hover .logo-icon {
+  transform: rotateZ(18deg) scale(1.15) rotateY(15deg);
+  box-shadow: 0 20px 40px rgba(29, 78, 216, 0.4), inset 0 2px 0 rgba(255,255,255,0.6);
+}
+.logo:active .logo-icon {
+  transform: scale(0.95);
+}
+
+.service-card {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(29, 78, 216, 0.12);
+}
+.doctor-card {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+.doctor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(29, 78, 216, 0.12);
+}
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.08);
+}
+.btn {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, opacity 0.3s;
+}
+.btn:hover {
+  transform: scale(1.03);
+}
+
+/* SCROLL REVEAL ANIMATIONS */
+[data-reveal="up"] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal="left"] {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal="right"] {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.is-visible[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+/* STAGGER LISTS */
+.stagger-list > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.stagger-list > *.visible {
+  opacity: 1;
+  transform: none;
+}
+/* Stagger delays handled in js/animations.js */
+
+/* 3D MOBILE MENU (CRAZY) */
+body.menu-open {
+  overflow: hidden;
+}
+.mobile-menu {
+  transform: perspective(1200px) translate3d(100%, 0, 0) rotateY(-35deg) scale(0.9);
+  transform-origin: right center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  opacity: 0;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+  box-shadow: -20px 0 80px rgba(15,23,42,0.6);
+}
+.mobile-menu.open {
+  transform: perspective(1200px) translate3d(0, 0, 0) rotateY(0deg) scale(1);
+  opacity: 1;
+}
+.mobile-link-card, .mobile-menu-status, .mobile-menu-cta, .mobile-menu-chip {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, background-color 0.3s;
+}
+
+/* CRAZY IMAGE AVATARS */
+.mobile-menu-img-wrapper {
+  flex-shrink: 0;
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.1);
+}
+.mobile-menu-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.4) rotate(-10deg);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+}
+.mobile-menu.open .mobile-link-card .mobile-menu-img {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+  transition-delay: calc(var(--item-index, 0) * 0.04s + 0.15s);
+}
+
+.mobile-menu.open .mobile-link-card, 
+.mobile-menu.open .mobile-menu-status,
+.mobile-menu.open .mobile-menu-cta,
+.mobile-menu.open .mobile-menu-chip {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--item-index, 0) * 0.04s + 0.1s);
+}
+
+/* REVEAL TYPES */
+[data-reveal="blur"] {
+  opacity: 0;
+  filter: blur(15px);
+  transform: translateY(20px);
+  transition: opacity 1s ease, filter 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal="blur"].is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+[data-reveal="scale"] {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[data-reveal="scale"].is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* HERO ENTRANCE */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(10px);
+  animation: heroEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes heroEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.hero-reveal-delay-1 { animation-delay: 0.15s; }
+.hero-reveal-delay-2 { animation-delay: 0.3s; }
+.hero-reveal-delay-3 { animation-delay: 0.45s; }
+
+/* PULSE BUTTON */
+.btn-pulse {
+  animation: btnPulse 2.5s infinite;
+}
+@keyframes btnPulse {
+  0% { box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(29, 78, 216, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(29, 78, 216, 0); }
+}
+
+/* SPINNER */
+@keyframes spinLoop {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  width: 22px; height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spinLoop 0.8s linear infinite;
+}
+
+/* MOBILE CONTACT PAGE MOTION */
+@media (max-width: 640px) {
+  .contact-hero {
+    isolation: isolate;
+  }
+
+  .contact-hero::after {
+    content: '';
+    position: absolute;
+    right: -78px;
+    bottom: -90px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55), rgba(255,255,255,0.12) 42%, rgba(6,182,212,0.22) 62%, transparent 74%);
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 0;
+    animation: mobileContactOrb 9s ease-in-out infinite;
+  }
+
+  .contact-hero h1 {
+    text-shadow: 0 12px 30px rgba(15,23,42,0.18);
+  }
+
+  .contact-hero-intro {
+    max-width: 20rem;
+  }
+
+  .contact-quick-section {
+    overflow: hidden;
+  }
+
+  .contact-quick-actions {
+    gap: 0.85rem !important;
+  }
+
+  .contact-quick-btn {
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 14px 30px rgba(15,23,42,0.12);
+  }
+
+  .contact-quick-actions.is-visible .contact-quick-btn {
+    animation: mobileContactActionIn 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--contact-delay, 0) * 0.12s);
+  }
+
+  .contact-quick-btn::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+    left: -35%;
+    width: 36%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.62), transparent);
+    transform: translateX(-180%) rotate(18deg);
+    pointer-events: none;
+    opacity: 0.65;
+    animation: mobileContactShine 4.8s ease-in-out infinite;
+    animation-delay: calc(var(--contact-delay, 0) * 0.35s + 0.6s);
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-info-card::before,
+  .contact-form-card::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+
+  .contact-info-card::before {
+    right: -58px;
+    bottom: -72px;
+    background: radial-gradient(circle, rgba(59,130,246,0.16) 0%, rgba(34,211,238,0.14) 42%, transparent 74%);
+    animation: mobileContactGlow 8s ease-in-out infinite;
+  }
+
+  .contact-form-card::before {
+    top: -72px;
+    right: -92px;
+    background: radial-gradient(circle, rgba(37,211,102,0.18) 0%, rgba(59,130,246,0.14) 44%, transparent 76%);
+    animation: mobileContactGlow 8s ease-in-out infinite;
+    animation-delay: -2.4s;
+  }
+
+  .contact-info-panel.is-visible .contact-info-card,
+  .contact-form-panel.is-visible .contact-form-card {
+    animation: mobileContactCardSettle 0.82s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .contact-form-panel.is-visible .contact-form-card {
+    animation-delay: 0.08s;
+  }
+
+  .contact-whatsapp-note {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-whatsapp-note::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 46%, transparent 63%);
+    transform: translateX(-135%);
+    pointer-events: none;
+    animation: mobileContactSweep 5.5s ease-in-out infinite;
+    animation-delay: 0.9s;
+  }
+
+  #contact-wa-submit {
+    box-shadow: 0 16px 34px rgba(37,211,102,0.24);
+    animation: mobileContactCtaPulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes mobileContactOrb {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-18px, -14px, 0) scale(1.08);
+  }
+}
+
+@keyframes mobileContactActionIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mobileContactShine {
+  0%, 58%, 100% {
+    transform: translateX(-180%) rotate(18deg);
+  }
+  18%, 30% {
+    transform: translateX(360%) rotate(18deg);
+  }
+}
+
+@keyframes mobileContactGlow {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.12) translate3d(-10px, -12px, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes mobileContactCardSettle {
+  0% {
+    transform: translateY(16px) scale(0.97);
+    box-shadow: 0 10px 20px rgba(15,23,42,0.06);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 24px rgba(29,78,216,0.08);
+  }
+}
+
+@keyframes mobileContactSweep {
+  0%, 60%, 100% {
+    transform: translateX(-135%);
+  }
+  20%, 34% {
+    transform: translateX(135%);
+  }
+}
+
+@keyframes mobileContactCtaPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 16px 34px rgba(37,211,102,0.24);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 20px 38px rgba(37,211,102,0.34);
+  }
+}
+
+/* REDUCED MOTION SAFEGUARD */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

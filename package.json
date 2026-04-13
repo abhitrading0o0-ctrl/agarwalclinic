@@ -1,0 +1,13 @@
+{
+  "name": "dr-agrawal-dental-clinic",
+  "version": "1.0.0",
+  "description": "Professional dental clinic website for Dr. Agrawal's Dental Health & Implant Centre",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

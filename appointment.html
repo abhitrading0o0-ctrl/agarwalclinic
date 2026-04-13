@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book an Appointment — Dr. Agarwal's Dental Health Clinic & Implant Centre, Agra</title>
+  <meta name="description" content="Book a dental appointment at Dr. Agarwal's Dental Health Clinic & Implant Centre, Agra. Choose your date, time, and service. Instant WhatsApp confirmation." />
+  <style>
+    body{margin:0;font-family:'Inter',sans-serif;background:#f0f6ff;overflow-x:hidden;}
+    .navbar{position:fixed;top:0;left:0;width:100%;z-index:999;padding:1.25rem 0;}
+    #page-transition{position:fixed;inset:0;z-index:9999;background:#1d4ed8;clip-path:circle(0% at 50% 50%);pointer-events:none;}
+  </style>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+
+  <!-- Keyframe for cell ripple -->
+  <style>
+    @keyframes cellRipple { from{transform:scale(0);opacity:.7} to{transform:scale(3);opacity:0} }
+    .appt-hero{background:linear-gradient(-45deg,#1e3a8a,#1d4ed8,#0891b2,#06b6d4);background-size:400% 400%;animation:morphGradient 12s ease infinite;}
+    .patient-form{ background:#fff; border-radius:24px; padding:2.5rem; box-shadow:0 4px 24px rgba(29,78,216,.08); }
+    @media(max-width:640px){
+      .patient-form{padding:1.5rem;}
+      .appointment-layout{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<div id="page-transition"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <img src="images/branding/logo.png" alt="Dr. Agarwal Dental Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+        </div>
+        Dr. Agarwal's Dental
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <a href="tel:+919412589572" class="btn btn-primary nav-cta-desktop magnetic">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Call Now
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="menu-backdrop" id="menu-backdrop"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+  <a href="about.html" class="mobile-nav-link">ℹ️ About</a>
+  <a href="contact.html" class="mobile-nav-link">📍 Contact</a>
+  <a href="tel:+919412589572" class="btn btn-primary btn-full" style="margin-top:1rem;justify-content:center;">Call Us Now</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero appt-hero">
+  <div class="container">
+    <h1 style="font-size:clamp(2rem,5vw,3.5rem);">Book Your Appointment</h1>
+    <p class="breadcrumb"><a href="index.html">Home</a> → Book Appointment</p>
+    <p style="color:rgba(255,255,255,.85);margin-top:.75rem;max-width:520px;">
+      Pick a date and time, share your details, and we'll confirm via WhatsApp within minutes.
+    </p>
+  </div>
+</section>
+
+<!-- STEPS INDICATOR -->
+<section style="padding:3rem 0 0;">
+  <div class="container" style="max-width:900px;">
+    <div class="steps-indicator">
+      <div class="step-pill active" id="step-1">① Date &amp; Time</div>
+      <div class="step-pill" id="step-2">② Your Details</div>
+      <div class="step-pill" id="step-3">③ Confirm</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT LAYOUT -->
+<section style="padding:2rem 0 6rem;">
+  <div class="container" style="max-width:1100px;">
+    <div class="appointment-layout">
+
+      <!-- LEFT: Calendar -->
+      <div>
+        <h3 style="margin-bottom:1.25rem;">Select a Date</h3>
+        <div class="calendar-widget">
+          <div class="cal-header">
+            <button class="cal-nav-btn cal-prev" aria-label="Previous month">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <span class="cal-month-year">Loading…</span>
+            <button class="cal-nav-btn cal-next" aria-label="Next month">
+              <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="cal-grid">
+            <!-- JS renders this -->
+          </div>
+        </div>
+
+        <!-- Time Slots rendered by JS after date selection -->
+        <div style="margin-top:2rem;">
+          <h3 style="margin-bottom:1rem;" id="time-slot-heading" style="display:none;">Select a Time</h3>
+          <div class="time-slots" id="time-slots-container">
+            <p style="color:#94a3b8;font-size:.9rem;grid-column:1/-1;">Select a date above to see available time slots.</p>
+          </div>
+        </div>
+
+        <!-- Hidden inputs -->
+        <input type="hidden" id="selected-date" name="date" />
+        <input type="hidden" id="selected-time" name="time" />
+      </div>
+
+      <!-- RIGHT: Patient Form -->
+      <div class="patient-form" id="patient-form-wrap">
+        <h3 style="margin-bottom:1.75rem;">Your Details</h3>
+        <form id="appointment-form" novalidate>
+
+          <div class="form-group">
+            <input type="text" name="name" id="appt-name" placeholder=" " autocomplete="name" required />
+            <label class="floating-label" for="appt-name">Full Name *</label>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <input type="tel" name="phone" id="appt-phone" placeholder=" " autocomplete="tel" required />
+            <label class="floating-label" for="appt-phone">Mobile Number * (10 digits)</label>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="email" id="appt-email" placeholder=" " autocomplete="email" />
+            <label class="floating-label" for="appt-email">Email Address (optional)</label>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group" style="margin-bottom:1.5rem;">
+            <select name="service" id="appt-service" style="padding-top:1rem;appearance:none;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><path d=%22M6 9l6 6 6-6%22 stroke=%22%2364748b%22 stroke-width=%222%22 fill=%22none%22/></svg>');background-repeat:no-repeat;background-position:right 1rem center;background-size:20px;" required>
+              <option value="" disabled selected>Select Service</option>
+              <option>Dental Implants</option>
+              <option>Smile Designing</option>
+              <option>Orthodontic Treatment</option>
+              <option>Root Canal Therapy</option>
+              <option>Teeth Whitening</option>
+              <option>Gum Treatment</option>
+              <option>Oral Surgery</option>
+              <option>Crowns &amp; Capping</option>
+              <option>General Check-up</option>
+              <option>Dental X-Ray</option>
+              <option>Other</option>
+            </select>
+            <label class="floating-label" for="appt-service" style="top:.9rem;transform:none;">Service Required *</label>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <textarea name="message" id="appt-message" placeholder=" " rows="4"></textarea>
+            <label class="floating-label" for="appt-message">Additional Notes (optional)</label>
+            <span class="field-error"></span>
+          </div>
+
+          <!-- Confirm Summary -->
+          <div id="appt-summary" style="background:#f0f6ff;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:.9rem;display:none;">
+            <p style="font-weight:700;font-family:'Outfit',sans-serif;margin-bottom:0.5rem;color:#1d4ed8;">📋 Appointment Summary</p>
+            <p id="summary-date" style="margin:0;color:#334155;"></p>
+            <p id="summary-time" style="margin:0;color:#334155;"></p>
+          </div>
+
+          <button type="submit" class="btn btn-whatsapp btn-lg btn-full magnetic" id="wa-submit-btn" style="min-height:56px;">
+            <span class="btn-text">
+              <svg width="24" height="24" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z M12 0C5.373 0 0 5.373 0 12c0 2.096.535 4.07 1.476 5.795L0 24l6.346-1.464A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" fill="white"/></svg>
+              <span class="btn-label">Book via WhatsApp</span>
+            </span>
+            <span class="spinner" style="display:none;"></span>
+          </button>
+
+          <p style="text-align:center;font-size:.82rem;color:#94a3b8;margin-top:1rem;">
+            We'll confirm your appointment within 30 minutes via WhatsApp.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer footer-compact">
+  <div class="container">
+    <div class="footer-bottom" style="padding-top:0;">
+      <p>© 2024 Dr. Agarwal's Dental Health Clinic & Implant Centre, Agra. | <a href="index.html" style="color:#06b6d4;">Back to Home</a></p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919412589572?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Dr.%20Agarwal's%20Dental%20Clinic." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z M12 0C5.373 0 0 5.373 0 12c0 2.096.535 4.07 1.476 5.795L0 24l6.346-1.464A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+</a>
+<button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top"><svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg></button>
+
+<script>
+// Update summary when date/time selected
+function updateSummary() {
+  const date = document.getElementById('selected-date').value;
+  const time = document.getElementById('selected-time').value;
+  const summary = document.getElementById('appt-summary');
+  const sDate  = document.getElementById('summary-date');
+  const sTime  = document.getElementById('summary-time');
+  if (date || time) {
+    summary.style.display = 'block';
+    sDate.textContent = date ? '📅 ' + date : '';
+    sTime.textContent = time ? '⏰ ' + time : '';
+  }
+}
+document.getElementById('selected-date').addEventListener('change', updateSummary);
+document.getElementById('selected-time').addEventListener('change', updateSummary);
+
+// Hook calendar events
+document.addEventListener('dateSelected', updateSummary);
+document.addEventListener('timeSelected', updateSummary);
+</script>
+
+<script src="js/main.js?v=1776006513786" defer></script>
+<script src="js/animations.js?v=1776006513786" defer></script>
+<script src="js/calendar.js" defer></script>
+<script src="js/form-validation.js" defer></script>
+</body>
+</html>

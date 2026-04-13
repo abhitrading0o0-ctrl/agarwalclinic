@@ -8,7 +8,7 @@
   <style>
     body{margin:0;font-family:'Inter',sans-serif;background:#f0f6ff;overflow-x:hidden;}
     .navbar{position:fixed;top:0;left:0;width:100%;z-index:999;padding:1.25rem 0;}
-    #page-transition{position:fixed;inset:0;z-index:9999;background:#1d4ed8;clip-path:circle(0% at 50% 50%);pointer-events:none;}
+    #page-transition{position:fixed;inset:0;z-index:9999;pointer-events:none;}
     .about-hero{background:linear-gradient(-45deg,#1a3a6b,#1d4ed8,#0891b2,#0e7490);background-size:400% 400%;animation:morphGradient 12s ease infinite;}
     @keyframes morphGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .value-card{background:#fff;border-radius:20px;padding:2rem;box-shadow:0 4px 20px rgba(29,78,216,.06);border-top:4px solid var(--primary,#1d4ed8);}
@@ -19,7 +19,23 @@
   <link rel="stylesheet" href="css/mobile.css"/>
 </head>
 <body>
-<div id="page-transition"></div>
+<div id="page-transition">
+  <div class="pt-panel pt-panel-1"></div>
+  <div class="pt-panel pt-panel-2"></div>
+  <div class="pt-panel pt-panel-3"></div>
+  <div class="pt-panel pt-panel-4"></div>
+  <div class="pt-center">
+    <div class="pt-logo-ring">
+      <svg class="pt-tooth" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.5 2 6 4 6 7c0 1.5.5 3 1.5 4.5C9 14 9 17 9 19c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2 0-2 0-5 1.5-7.5C17.5 10 18 8.5 18 7c0-3-2.5-5-6-5z"/></svg>
+    </div>
+    <span class="pt-text">Agarwal Dental</span>
+  </div>
+  <div class="pt-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span>
+  </div>
+</div>
 <div id="cursor-dot"></div><div id="cursor-ring"></div>
 
 <!-- NAVBAR -->

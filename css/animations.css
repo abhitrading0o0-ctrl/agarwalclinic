@@ -1,21 +1,173 @@
-/* =========================================================================
+/* =========================================================================
    ANIMATIONS.CSS
-   Cool, engaging animations for page transitions and mobile UI.
+   Cinematic page transitions, scroll reveals, and mobile UI motion.
    ========================================================================= */
 
-/* PAGE TRANSITION */
+/* PAGE TRANSITION — Cinematic Multi-Panel */
 #page-transition {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--primary);
-  clip-path: circle(0% at 50% 100%);
-  transition: clip-path 0.6s cubic-bezier(0.85, 0, 0.15, 1);
   pointer-events: none;
+  perspective: 1200px;
 }
 #page-transition.is-active {
-  clip-path: circle(150% at 50% 100%);
   pointer-events: all;
+}
+
+.pt-panel {
+  position: absolute;
+  width: 25.1%;
+  height: 100%;
+  top: 0;
+  transform: translateY(101%);
+  transition: transform 0s;
+}
+.pt-panel-1 { left: 0;    background: linear-gradient(180deg, #1e3a8a, #1d4ed8); }
+.pt-panel-2 { left: 25%;  background: linear-gradient(180deg, #1d4ed8, #2563eb); }
+.pt-panel-3 { left: 50%;  background: linear-gradient(180deg, #2563eb, #0891b2); }
+.pt-panel-4 { left: 75%;  background: linear-gradient(180deg, #0891b2, #06b6d4); }
+
+#page-transition.is-active .pt-panel {
+  transform: translateY(0);
+  transition: transform 0.48s cubic-bezier(0.77, 0, 0.175, 1);
+}
+#page-transition.is-active .pt-panel-1 { transition-delay: 0s; }
+#page-transition.is-active .pt-panel-2 { transition-delay: 0.07s; }
+#page-transition.is-active .pt-panel-3 { transition-delay: 0.14s; }
+#page-transition.is-active .pt-panel-4 { transition-delay: 0.21s; }
+
+#page-transition.is-exiting .pt-panel {
+  transform: translateY(-101%);
+  transition: transform 0.42s cubic-bezier(0.77, 0, 0.175, 1);
+}
+#page-transition.is-exiting .pt-panel-1 { transition-delay: 0.18s; }
+#page-transition.is-exiting .pt-panel-2 { transition-delay: 0.12s; }
+#page-transition.is-exiting .pt-panel-3 { transition-delay: 0.06s; }
+#page-transition.is-exiting .pt-panel-4 { transition-delay: 0s; }
+
+/* Center logo + text */
+.pt-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: transform 0s, opacity 0s;
+}
+#page-transition.is-active .pt-center {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.28s,
+              opacity 0.35s ease 0.28s;
+}
+#page-transition.is-exiting .pt-center {
+  transform: translate(-50%, -50%) scale(1.4);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.pt-logo-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.12);
+  border: 3px solid rgba(255,255,255,0.35);
+  box-shadow: 0 0 0 0 rgba(255,255,255,0.3);
+  animation: none;
+}
+#page-transition.is-active .pt-logo-ring {
+  animation: ptRingPulse 1.2s ease-in-out infinite 0.35s,
+             ptRingSpin 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+.pt-tooth {
+  width: 36px;
+  height: 36px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+}
+
+.pt-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0s, transform 0s;
+}
+#page-transition.is-active .pt-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease 0.5s, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
+}
+
+/* Particles */
+.pt-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  overflow: hidden;
+}
+.pt-particles span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  opacity: 0;
+}
+#page-transition.is-active .pt-particles span {
+  animation: ptParticle 1.4s ease-out forwards;
+}
+.pt-particles span:nth-child(1)  { left: 12%; top: 22%; animation-delay: 0.32s; --pdx: -60px; --pdy: -80px; }
+.pt-particles span:nth-child(2)  { left: 82%; top: 18%; animation-delay: 0.36s; --pdx: 70px; --pdy: -60px; }
+.pt-particles span:nth-child(3)  { left: 28%; top: 72%; animation-delay: 0.4s;  --pdx: -50px; --pdy: 70px; }
+.pt-particles span:nth-child(4)  { left: 72%; top: 78%; animation-delay: 0.44s; --pdx: 80px; --pdy: 50px; }
+.pt-particles span:nth-child(5)  { left: 48%; top: 12%; animation-delay: 0.34s; --pdx: 20px; --pdy: -90px; }
+.pt-particles span:nth-child(6)  { left: 18%; top: 52%; animation-delay: 0.38s; --pdx: -90px; --pdy: 10px; }
+.pt-particles span:nth-child(7)  { left: 88%; top: 48%; animation-delay: 0.42s; --pdx: 60px; --pdy: 30px; }
+.pt-particles span:nth-child(8)  { left: 38%; top: 88%; animation-delay: 0.48s; --pdx: -30px; --pdy: 70px; }
+.pt-particles span:nth-child(9)  { left: 62%; top: 32%; animation-delay: 0.37s; --pdx: 40px; --pdy: -70px; }
+.pt-particles span:nth-child(10) { left: 22%; top: 82%; animation-delay: 0.46s; --pdx: -70px; --pdy: 40px; }
+.pt-particles span:nth-child(11) { left: 78%; top: 58%; animation-delay: 0.41s; --pdx: 50px; --pdy: -20px; }
+.pt-particles span:nth-child(12) { left: 42%; top: 42%; animation-delay: 0.35s; --pdx: -20px; --pdy: -50px; }
+
+@keyframes ptRingSpin {
+  0%   { transform: rotate(0deg) scale(0.4); }
+  50%  { transform: rotate(360deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes ptRingPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.35); }
+  50%      { box-shadow: 0 0 0 22px rgba(255,255,255,0); }
+}
+
+@keyframes ptParticle {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--pdx, 50px), var(--pdy, -50px)) scale(0);
+  }
 }
 
 /* CUSTOM CURSOR */

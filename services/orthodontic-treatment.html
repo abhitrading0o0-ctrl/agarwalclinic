@@ -7,7 +7,7 @@
   <style>
     body{margin:0;font-family:'Inter',sans-serif;background:#f0f6ff;overflow-x:hidden;}
     .navbar{position:fixed;top:0;left:0;width:100%;z-index:999;padding:1.25rem 0;}
-    #page-transition{position:fixed;inset:0;z-index:9999;background:#1d4ed8;clip-path:circle(0% at 50% 50%);pointer-events:none;}
+    #page-transition{position:fixed;inset:0;z-index:9999;pointer-events:none;}
     .svc-hero{background:linear-gradient(-45deg,#0f766e,#0d9488,#1d4ed8,#2563eb);background-size:400% 400%;animation:morphGradient 12s ease infinite;}
     @keyframes morphGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .benefit-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:.75rem;}
@@ -18,7 +18,24 @@
   <link rel="stylesheet" href="../css/style.css"/><link rel="stylesheet" href="../css/animations.css"/><link rel="stylesheet" href="../css/mobile.css"/>
 </head>
 <body>
-<div id="page-transition"></div><div id="cursor-dot"></div><div id="cursor-ring"></div>
+<div id="page-transition">
+  <div class="pt-panel pt-panel-1"></div>
+  <div class="pt-panel pt-panel-2"></div>
+  <div class="pt-panel pt-panel-3"></div>
+  <div class="pt-panel pt-panel-4"></div>
+  <div class="pt-center">
+    <div class="pt-logo-ring">
+      <svg class="pt-tooth" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.5 2 6 4 6 7c0 1.5.5 3 1.5 4.5C9 14 9 17 9 19c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2 0-2 0-5 1.5-7.5C17.5 10 18 8.5 18 7c0-3-2.5-5-6-5z"/></svg>
+    </div>
+    <span class="pt-text">Agarwal Dental</span>
+  </div>
+  <div class="pt-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span>
+  </div>
+</div>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
 <nav class="navbar" id="navbar"><div class="container"><div class="nav-inner">
   <a href="../index.html" class="logo"><div class="logo-icon"><img src="../images/branding/logo.png" alt="Logo" style="width:100%;height:100%;object-fit:contain;"></div>Agarwal Dental</a>
   <div class="nav-links"><a href="../index.html" class="nav-link">Home</a><a href="../about.html" class="nav-link">About</a><a href="../index.html#services" class="nav-link active">Services</a><a href="../contact.html" class="nav-link">Contact</a></div>

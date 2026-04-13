@@ -12,7 +12,7 @@
   <style>
     body{margin:0;font-family:'Inter',sans-serif;background:#f0f6ff;overflow-x:hidden;}
     .navbar{position:fixed;top:0;left:0;width:100%;z-index:999;padding:1.25rem 0;}
-    #page-transition{position:fixed;inset:0;z-index:9999;background:#1d4ed8;clip-path:circle(0% at 50% 50%);pointer-events:none;}
+    #page-transition{position:fixed;inset:0;z-index:9999;pointer-events:none;}
   </style>
 
   <link rel="stylesheet" href="css/style.css" />
@@ -24,8 +24,24 @@
 </head>
 <body>
 
-<!-- PAGE TRANSITION OVERLAY -->
-<div id="page-transition"></div>
+<!-- PAGE TRANSITION OVERLAY — Cinematic Multi-Layer -->
+<div id="page-transition">
+  <div class="pt-panel pt-panel-1"></div>
+  <div class="pt-panel pt-panel-2"></div>
+  <div class="pt-panel pt-panel-3"></div>
+  <div class="pt-panel pt-panel-4"></div>
+  <div class="pt-center">
+    <div class="pt-logo-ring">
+      <svg class="pt-tooth" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.5 2 6 4 6 7c0 1.5.5 3 1.5 4.5C9 14 9 17 9 19c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2 0-2 0-5 1.5-7.5C17.5 10 18 8.5 18 7c0-3-2.5-5-6-5z"/></svg>
+    </div>
+    <span class="pt-text">Agarwal Dental</span>
+  </div>
+  <div class="pt-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span>
+  </div>
+</div>
 
 <!-- CUSTOM CURSOR -->
 <div id="cursor-dot"></div>

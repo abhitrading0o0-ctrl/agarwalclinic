@@ -1,12 +1,15 @@
 /**
- * animations.js - Dynamic motion, scroll reveals, and page transitions.
- * Implements smooth entrance animations and full-page transition effects.
+ * animations.js — Cinematic page transitions + scroll reveals.
+ * Multi-panel stagger, spinning tooth logo, floating particles.
  */
 
 'use strict';
 
 const prefersReducedMotionAnim = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+/* ===================================================================
+   SCROLL REVEALS
+   =================================================================== */
 function initScrollReveals() {
   document.body.classList.add('page-loaded');
 
@@ -63,42 +66,113 @@ function initScrollReveals() {
   });
 }
 
+/* ===================================================================
+   PAGE TRANSITIONS — Cinematic Multi-Panel
+   =================================================================== */
 function initPageTransitions() {
   if (prefersReducedMotionAnim.matches) return;
 
   const transitionLayer = document.getElementById('page-transition');
   if (!transitionLayer) return;
 
-  // Clear transition layer on load (browser back-button cache prevention)
+  // --- ON PAGE LOAD: Play the exit animation (panels slide out) ---
+  function playPageEntryAnimation() {
+    // If we came from a transition, the panels are covering the screen
+    // We need to animate them out
+    if (sessionStorage.getItem('pt-navigating')) {
+      sessionStorage.removeItem('pt-navigating');
+      
+      // Start with panels covering the screen
+      transitionLayer.classList.add('is-active');
+      transitionLayer.classList.remove('is-exiting');
+      
+      // Force a reflow so the panels are visible immediately
+      transitionLayer.offsetHeight;
+      
+      // After a tiny beat, trigger exit
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          transitionLayer.classList.add('is-exiting');
+          transitionLayer.classList.remove('is-active');
+          
+          // Clean up after exit animation completes
+          setTimeout(() => {
+            transitionLayer.classList.remove('is-exiting');
+            // Reset all panel transforms
+            resetTransition(transitionLayer);
+          }, 700);
+        }, 200); // Brief pause to show the logo before exiting
+      });
+    }
+  }
+
+  function resetTransition(el) {
+    el.classList.remove('is-active', 'is-exiting');
+    // Force panels back to initial offscreen state
+    const panels = el.querySelectorAll('.pt-panel');
+    panels.forEach(p => {
+      p.style.transform = '';
+    });
+  }
+
+  // --- ON LINK CLICK: Play the entry animation (panels slide in) ---
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+
+    const target = link.getAttribute('href');
+    
+    // Skip non-navigating links
+    if (!target || 
+        target.startsWith('#') || 
+        target.startsWith('javascript') || 
+        target.startsWith('tel:') || 
+        target.startsWith('mailto:') || 
+        target.startsWith('https://wa.me') ||
+        link.target === '_blank') return;
+    
+    const isLocal = link.hostname === window.location.hostname || !link.hostname;
+    if (!isLocal || e.ctrlKey || e.metaKey) return;
+
+    e.preventDefault();
+
+    // Mark that we're navigating (so the next page plays exit)
+    sessionStorage.setItem('pt-navigating', '1');
+
+    // Reset any previous state
+    transitionLayer.classList.remove('is-exiting');
+    resetTransition(transitionLayer);
+
+    // Force reflow
+    transitionLayer.offsetHeight;
+
+    // Activate panels (slide in from bottom, staggered)
+    transitionLayer.classList.add('is-active');
+
+    // Navigate after transition completes
+    // Panels take ~0.48s + 0.21s delay = ~0.7s, plus logo animation
+    setTimeout(() => {
+      window.location.href = target;
+    }, 800);
+  });
+
+  // Handle browser back/forward (bfcache)
   window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-      transitionLayer.classList.remove('is-active');
+      // Page restored from bfcache, clean up
+      resetTransition(transitionLayer);
+      sessionStorage.removeItem('pt-navigating');
     }
   });
 
-  const links = document.querySelectorAll('a[href]');
-  links.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const target = link.getAttribute('href');
-      
-      // Ignore empty, anchor, script, blank target, or external links
-      if (!target || target.startsWith('#') || target.startsWith('javascript') || target.startsWith('tel:') || target.startsWith('mailto:') || link.target === '_blank') return;
-      
-      const isLocal = link.hostname === window.location.hostname;
-      if (isLocal && !e.ctrlKey && !e.metaKey) {
-        e.preventDefault();
-        transitionLayer.classList.add('is-active');
-        
-        setTimeout(() => {
-          window.location.href = target;
-        }, 600); // matches css 0.6s
-      }
-    });
-  });
+  // Play entry animation on this page load
+  playPageEntryAnimation();
 }
 
+/* ===================================================================
+   INIT
+   =================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveals();
   initPageTransitions();
 });
-

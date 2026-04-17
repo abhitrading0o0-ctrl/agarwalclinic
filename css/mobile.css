@@ -512,6 +512,38 @@
   /* 6. Calendar cells larger touch targets */
   .cal-cell { min-height: 44px; }
   .cal-nav-btn { width: 52px; height: 52px; }
+
+  /* 7. OPTIMIZE PAGE TRANSITIONS FOR MOBILE */
+  #page-transition.is-active .pt-panel-1 { transition-delay: 0s; }
+  #page-transition.is-active .pt-panel-2 { transition-delay: 0.04s; }
+  #page-transition.is-active .pt-panel-3 { transition-delay: 0.08s; }
+  #page-transition.is-active .pt-panel-4 { transition-delay: 0.12s; }
+
+  #page-transition.is-revealing .pt-panel-1 { transition-delay: 0.1s; }
+  #page-transition.is-revealing .pt-panel-2 { transition-delay: 0.07s; }
+  #page-transition.is-revealing .pt-panel-3 { transition-delay: 0.04s; }
+  #page-transition.is-revealing .pt-panel-4 { transition-delay: 0s; }
+
+  /* 8. Reduce particle animations on mobile (hide 6+ particles) */
+  .pt-particles span:nth-child(n+6) {
+    display: none !important;
+  }
+
+  /* 9. Simplify scroll reveals on mobile */
+  [data-reveal] {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .stagger-item {
+    transition-delay: 0s !important;
+  }
+
+  /* 10. Reduce logo animation complexity */
+  .pt-logo-ring {
+    animation: none !important;
+  }
+  #page-transition.is-active .pt-logo-ring {
+    animation: ptRingPulse 0.7s ease-in-out infinite;
+  }
 }
 
 /* ============================================================

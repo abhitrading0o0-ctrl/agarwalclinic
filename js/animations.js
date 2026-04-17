@@ -6,11 +6,17 @@
 'use strict';
 
 const prefersReducedMotionAnim = window.matchMedia('(prefers-reduced-motion: reduce)');
+const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+const isMobileDevice = window.innerWidth <= 768 || isTouchDevice;
+const lowMemoryDevice = typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4;
+const lowCoreDevice = typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4;
+const useLitePageTransition = isMobileDevice || lowMemoryDevice || lowCoreDevice;
 
 const TRANSITION_STATE_KEY = 'pt-transition-state';
 const TRANSITION_MAX_AGE_MS = 6000;
-const TRANSITION_EXIT_MS = 920;
-const TRANSITION_REVEAL_MS = 880;
+const TRANSITION_EXIT_MS = useLitePageTransition ? 460 : 920;
+const TRANSITION_REVEAL_MS = useLitePageTransition ? 380 : 880;
+const TRANSITION_FRAME_STEPS = useLitePageTransition ? 1 : 2;
 const TRANSITION_BADGE_SIZE = 112;
 const DEFAULT_BRAND_LABEL = 'Agarwal Dental';
 
@@ -43,7 +49,12 @@ function initScrollReveals() {
       el.classList.add('is-visible', 'in-view', 'visible');
 
       el.querySelectorAll('[data-reveal-child]').forEach((child, index) => {
-        window.setTimeout(() => child.classList.add('is-visible'), index * 150);
+        const delay = isMobileDevice ? 0 : (index * 80);
+        if (delay > 0) {
+          window.setTimeout(() => child.classList.add('is-visible'), delay);
+        } else {
+          child.classList.add('is-visible');
+        }
       });
 
       obs.unobserve(el);
@@ -58,7 +69,11 @@ function initScrollReveals() {
 
   document.querySelectorAll('.stagger-list').forEach((list) => {
     list.querySelectorAll('li, .benefit-item, .stagger-item').forEach((item, index) => {
-      item.style.transitionDelay = `${index * 0.08}s`;
+      if (!isMobileDevice) {
+        item.style.transitionDelay = `${index * 0.08}s`;
+      } else {
+        item.style.transitionDelay = '0s';
+      }
       observer.observe(item);
     });
   });
@@ -68,6 +83,28 @@ function initScrollReveals() {
    PAGE TRANSITIONS - Logo-led handoff
    =================================================================== */
 function getTransitionTemplate() {
+  if (useLitePageTransition) {
+    return `
+      <div class="pt-panel-track" aria-hidden="true">
+        <div class="pt-panel pt-panel-1"></div>
+        <div class="pt-panel pt-panel-2"></div>
+        <div class="pt-panel pt-panel-3"></div>
+        <div class="pt-panel pt-panel-4"></div>
+      </div>
+      <div class="pt-center" aria-hidden="true">
+        <div class="pt-logo-flight">
+          <div class="pt-logo-shell">
+            <img class="pt-logo-image" alt="" />
+            <span class="pt-logo-fallback">AD</span>
+          </div>
+        </div>
+        <div class="pt-copy">
+          <span class="pt-wordmark">${DEFAULT_BRAND_LABEL}</span>
+        </div>
+      </div>
+    `;
+  }
+
   return `
     <div class="pt-panel-track" aria-hidden="true">
       <div class="pt-panel pt-panel-1"></div>
@@ -108,6 +145,7 @@ function ensureTransitionLayer() {
   }
 
   layer.setAttribute('aria-hidden', 'true');
+  layer.dataset.ptVariant = useLitePageTransition ? 'lite' : 'full';
   layer.innerHTML = getTransitionTemplate();
   return layer;
 }
@@ -246,6 +284,19 @@ function setFlightVectors(layer, fromRect, toRect) {
     scale: 0.42
   });
 
+  if (useLitePageTransition) {
+    const maxOffsetX = window.innerWidth * 0.24;
+    const maxOffsetY = window.innerHeight * 0.24;
+
+    from.x = clamp(from.x, -maxOffsetX, maxOffsetX);
+    from.y = clamp(from.y, -maxOffsetY, maxOffsetY);
+    from.scale = clamp(from.scale, 0.56, 0.92);
+
+    to.x = clamp(to.x, -maxOffsetX, maxOffsetX);
+    to.y = clamp(to.y, -maxOffsetY, maxOffsetY);
+    to.scale = clamp(to.scale, 0.52, 0.88);
+  }
+
   layer.style.setProperty('--pt-logo-from-x', `${from.x.toFixed(1)}px`);
   layer.style.setProperty('--pt-logo-from-y', `${from.y.toFixed(1)}px`);
   layer.style.setProperty('--pt-logo-from-scale', from.scale.toFixed(3));
@@ -287,6 +338,17 @@ function resetTransitionLayer(layer) {
   layer.classList.remove('is-active', 'is-entering', 'is-primed', 'is-revealing');
 }
 
+function afterTransitionPaint(callback, frames = TRANSITION_FRAME_STEPS) {
+  if (frames <= 0) {
+    callback();
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    afterTransitionPaint(callback, frames - 1);
+  });
+}
+
 function isTransitionableLink(link, event) {
   if (!link || event.defaultPrevented || event.button !== 0) return false;
   if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
@@ -325,15 +387,13 @@ function playEntryTransition(layer, brand) {
   setFlightVectors(layer, null, getLogoMotionSource());
   layer.classList.add('is-active', 'is-primed');
 
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => {
-      layer.classList.remove('is-primed', 'is-entering');
-      layer.classList.add('is-revealing');
+  afterTransitionPaint(() => {
+    layer.classList.remove('is-primed', 'is-entering');
+    layer.classList.add('is-revealing');
 
-      window.setTimeout(() => {
-        resetTransitionLayer(layer);
-      }, TRANSITION_REVEAL_MS);
-    });
+    window.setTimeout(() => {
+      resetTransitionLayer(layer);
+    }, TRANSITION_REVEAL_MS);
   });
 }
 
@@ -359,11 +419,11 @@ function initPageTransitions() {
     applyBranding(layer, brand);
     setFlightVectors(layer, getLogoMotionSource(), null);
     resetTransitionLayer(layer);
-    void layer.offsetWidth;
-
     storeTransitionState(brand);
-
-    layer.classList.add('is-active', 'is-entering');
+    layer.classList.add('is-active');
+    afterTransitionPaint(() => {
+      layer.classList.add('is-entering');
+    }, 1);
 
     window.setTimeout(() => {
       window.location.href = targetUrl.href;
